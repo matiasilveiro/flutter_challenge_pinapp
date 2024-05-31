@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 
-import '../presentation/screens/screens.dart';
+import '../presentation/screens/post_details_screen.dart';
+import '../presentation/screens/posts_list_screen.dart';
 
 final appRouter = GoRouter(
   routes: [
@@ -19,3 +20,10 @@ final appRouter = GoRouter(
   ],
 );
 
+class AppRouter {
+  // Path parameters for the PostDetailsScreen route.
+  // The postId is required to fetch the note details.
+  static Map<String, String> postDetailsParameters(int postId) {
+    return {'id': postId.toString()};
+  }
+}
