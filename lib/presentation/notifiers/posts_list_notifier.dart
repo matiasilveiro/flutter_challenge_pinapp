@@ -16,7 +16,9 @@ class PostsListNotifier extends AsyncNotifier<List<Post>> {
   }
 
   Future<void> refresh() async {
-    state = const AsyncValue.loading();
+    // Simulate a delay to show the refresh indicator
+    await Future.delayed(const Duration(seconds: 1));
+
     state = await AsyncValue.guard(() => postsRepository.getPosts());
   }
 }

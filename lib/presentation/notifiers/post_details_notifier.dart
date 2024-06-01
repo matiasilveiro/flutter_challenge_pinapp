@@ -9,19 +9,41 @@ class PostDetailsNotifier
   late final PostsRepository postsRepository =
       ref.read(postsRepositoryProvider);
 
+  late final int? postId;
+
   @override
   PostDetailsState build(int? arg) {
+    postId = arg;
+
     // If an id is passed, fetch the data from the repository
-    if (arg != null) {
-      _getPost(arg);
-      _getPostComments(arg);
+    if (postId != null) {
+      _getPost(postId!);
+      _getPostComments(postId!);
+
+      return PostDetailsState(
+        post: const AsyncValue.loading(),
+        comments: const AsyncValue.loading(),
+      );
     }
 
     return PostDetailsState();
   }
 
-  // TODO - Fix this
-  Future<void> _getPost(int postId) {
+  Future<void> refresh() async {
+    state = state.copyWith(
+      comments: const AsyncValue.loading(),
+    );
+
+    return Future.wait([
+      _getPost(postId!),
+      _getPostComments(postId!),
+    ]).then((_) => null);
+  }
+
+  Future<void> _getPost(int postId) async {
+    // Simulate a delay to show the refresh indicator for a little longer
+    await Future.delayed(const Duration(seconds: 1));
+
     return AsyncValue.guard(() => postsRepository.getPost(postId)).then(
       (value) => value.when(
         data: (post) => state = state.copyWith(
@@ -37,7 +59,10 @@ class PostDetailsNotifier
     );
   }
 
-  Future<void> _getPostComments(int postId) {
+  Future<void> _getPostComments(int postId) async {
+    // Simulate a delay to show the refresh indicator for a little longer
+    await Future.delayed(const Duration(seconds: 2));
+
     return AsyncValue.guard(() => postsRepository.getCommentsForPost(postId))
         .then(
       (value) => value.when(
