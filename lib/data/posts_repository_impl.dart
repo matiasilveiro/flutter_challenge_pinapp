@@ -19,12 +19,12 @@ class PostsRepositoryImpl implements PostsRepository {
   }
 
   @override
-  Future<List<Comment>> getCommentsForPost(int postId) {
-    return commentsService.getCommentsForPost(postId);
+  Future<Post?> getPost(int postId) {
+    return postsService.getPost(postId);
   }
 
   @override
-  Future<Post?> getPost(int postId) {
-    return postsService.getPost(postId);
+  Future<List<Comment>> getCommentsForPost(int postId) {
+    return commentsService.getCommentsForPost(postId);
   }
 }
