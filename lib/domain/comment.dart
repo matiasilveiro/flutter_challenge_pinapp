@@ -12,4 +12,14 @@ class Comment {
     required this.email,
     required this.body,
   });
+
+  factory Comment.fromJson(Map<String, dynamic> json) {
+    return Comment(
+      id: json['id'],
+      postId: json['postId'],
+      name: json['name'],
+      email: json['email'],
+      body: json['body'],
+    );
+  }
 }
