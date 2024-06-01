@@ -1,16 +1,72 @@
-# flutter_challenge_pinapp
+## README - Flutter Posts App
 
-A new Flutter project.
+### Project Description
 
-## Getting Started
+This Flutter application implements a simplified Clean Architecture and MVVM to display a list of posts and navigate to a detail screen with their associated comments. The app uses Riverpod as a state manager and dependency locator, Dio as a REST client, and Mocktail for unit test mocks.
 
-This project is a starting point for a Flutter application.
+### App in action
 
-A few resources to get you started if this is your first Flutter project:
+Coming soon...
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Displays a list of posts fetched from the JSONPlaceholder API.
+* Allows navigation to a detail screen for each post.
+* Shows the comments associated with each post (**only available on iOS**).
+
+### Architecture
+
+The application follows the principles of Clean Architecture and MVVM to separate concerns and improve testability. However, in this solution, a simplified implementation of Clean Architecture has been chosen to avoid over-engineering.
+
+* **Clean Architecture:**
+    * **Entities:** Represent the domain data, independent of the implementation.
+    * **Use Cases:** Define the business logic, without depending on the technology or the user interface.
+    * **Interfaces:** Define the communication interfaces between layers, without implementing the logic.
+    * **Implementations:** Implement the logic of the interfaces, using specific technologies.
+* **MVVM (implemented with Riverpod):**
+    * **Model:** Represents the application data.
+    * **ViewModel:** Exposes the data and business logic to the view, handling user interaction. It is implemented using Riverpod's `AsyncNotifier` and `Notifier` classes.
+    * **View:** Displays the user interface and communicates with the ViewModel.
+
+![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*h4ahfMrkEhwmx5_Y6Y7zOA.png)
+
+### Technologies Used
+
+* **Flutter:** Multi-platform mobile application development framework.
+* **Dart:** Official programming language for Flutter.
+* **Clean Architecture (simplified):** Architectural pattern for organizing code in a modular and testable way.
+* **MVVM (implemented with Riverpod):** Design pattern to separate the view from the model and business logic.
+* **Riverpod:** State manager and dependency locator based on Provider.
+* **Dio:** HTTP client for making requests to REST APIs.
+* **Mocktail:** Library for creating object mocks in Dart.
+
+**Dependencies**
+
+* Flutter >= 3.10.0
+* Dart >= 3.3.0
+* Riverpod >= 2.5.1
+* Dio >= 5.4.3
+* Mocktail >= 1.0.3
+
+**Instructions for Use**
+
+1. Clone the repository: `git clone https://github.com/repository`
+2. Install dependencies: `flutter pub get`
+3. Run the application: `flutter run`
+
+### Notes
+
+* The application is configured to work on iOS and Android (comment functionality is **only available on iOS**).
+* Unit test mocks are implemented using Mocktail.
+* It is recommended to read the source code to better understand the implementation of the architecture and technologies used.
+* The error handling for the Repository calls is delegated to Riverpod's `AsyncValue` class and its straightforward usage.
+* **The implementation of Clean Architecture in this solution has been simplified to avoid over-engineering, by not creating UseCases and using the `PostsRepository` directly.**
+
+## Contact
+
+Do you have any questions or comments? Feel free to contact me!
+
+**Matias Silveiro**
+matias.silveiro@gmail.com
+
+**I hope you like this app!**
