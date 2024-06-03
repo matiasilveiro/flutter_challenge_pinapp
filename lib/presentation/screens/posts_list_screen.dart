@@ -121,7 +121,7 @@ class _PostsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
+    return RefreshIndicator.adaptive(
       onRefresh: onRefresh,
       child: CupertinoScrollbar(
         controller: controller,

@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (5.9.1)
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+
+PODFILE CHECKSUM: 9ba6487c25c124fe9c34959741c7fa8ea0ee41cc
+
+COCOAPODS: 1.14.3
