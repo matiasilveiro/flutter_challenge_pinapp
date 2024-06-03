@@ -6,13 +6,13 @@ This Flutter application implements a simplified Clean Architecture and MVVM to 
 
 ### App in action
 
-Coming soon...
+https://github.com/matiasilveiro/flutter_challenge_pinapp/assets/8867806/a798fbde-ac5f-4c7e-b448-3f3c32a13322
 
 ### Features
 
 * Displays a list of posts fetched from the JSONPlaceholder API.
 * Allows navigation to a detail screen for each post.
-* Shows the comments associated with each post (**only available on iOS**).
+* Shows the comments associated with each post.
 
 ### Architecture
 
@@ -38,6 +38,7 @@ The application follows the principles of Clean Architecture and MVVM to separat
 * **MVVM (implemented with Riverpod):** Design pattern to separate the view from the model and business logic.
 * **Riverpod:** State manager and dependency locator based on Provider.
 * **Dio:** HTTP client for making requests to REST APIs.
+* **Alamofire:** HTTP client for making requests to REST APIs on iOS.
 * **Mocktail:** Library for creating object mocks in Dart.
 
 **Dependencies**
@@ -56,10 +57,10 @@ The application follows the principles of Clean Architecture and MVVM to separat
 
 ### Notes
 
-* The application is configured to work on iOS and Android (comment functionality is **only available on iOS**).
-* Unit test mocks are implemented using Mocktail.
+* The application is configured to work on iOS and Android.
+* Unit test mocks are implemented using Mocktail. However, the code is missing many unit tests.
 * It is recommended to read the source code to better understand the implementation of the architecture and technologies used.
-* The error handling for the Repository calls is delegated to Riverpod's `AsyncValue` class and its straightforward usage.
+* The error handling for the Repository calls is delegated to Riverpod's `AsyncValue` class and its straightforward usage. However, better error handling both in UI and in code is missing.
 * **The implementation of Clean Architecture in this solution has been simplified to avoid over-engineering, by not creating UseCases and using the `PostsRepository` directly.**
 
 ## Contact
